@@ -5,25 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DamirTech | Главная</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-white">
-    <nav class="bg-black text-white p-5 sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold italic">DAMIR<span class="text-blue-500">TECH</span></div>
-            <div class="space-x-6 text-sm uppercase font-semibold">
+<body class="bg-white text-gray-900">
+
+    <nav class="bg-black text-white p-4 sticky top-0 z-50 shadow-xl">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <div class="text-xl font-bold italic tracking-tighter">DAMIR<span class="text-blue-500">TECH</span></div>
+            <div class="hidden md:flex space-x-8 text-[12px] uppercase font-bold tracking-widest">
                 <a href="index.html" class="text-blue-500">Главная</a>
                 <a href="about.html" class="hover:text-blue-500 transition">О нас</a>
                 <a href="services.html" class="hover:text-blue-500 transition">Услуги</a>
             </div>
+            <div class="md:hidden"><i class="fa-solid fa-bars"></i></div>
         </div>
     </nav>
 
-    <header class="py-20 bg-gray-50 border-b">
+    <header class="py-24 bg-gradient-to-b from-gray-50 to-white border-b">
         <div class="container mx-auto px-6 text-center">
-            <h1 class="text-5xl font-black mb-6">Разработка будущего</h1>
-            <p class="text-xl text-gray-600 mb-8">Многостраничная платформа для вашего бизнеса</p>
-            <a href="services.html" class="bg-blue-600 text-white px-10 py-4 rounded-full font-bold">Посмотреть услуги</a>
+            <span class="bg-blue-100 text-blue-600 px-4 py-1 rounded-full text-xs font-bold uppercase mb-6 inline-block">Astana IT Solutions</span>
+            <h1 class="text-5xl md:text-7xl font-black mb-6 tracking-tight">Разработка <br><span class="text-blue-600 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">будущего</span></h1>
+            <p class="text-gray-500 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+                Создаем многостраничные платформы, маркетплейсы и экосистемы для вашего бизнеса под ключ.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="services.html" class="bg-blue-600 text-white px-10 py-4 rounded-full font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition transform hover:-translate-y-1">Посмотреть услуги</a>
+                <a href="#contact" class="bg-white border border-gray-200 px-10 py-4 rounded-full font-bold hover:bg-gray-50 transition">Обсудить проект</a>
+            </div>
         </div>
     </header>
+
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-blue-600 text-2xl">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Скорость</h3>
+                    <p class="text-gray-500">Запуск MVP версии проекта от 14 дней с полной оптимизацией.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-blue-600 text-2xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Надежность</h3>
+                    <p class="text-gray-500">Безопасные платежные решения и защита данных по стандартам EPAM.</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-blue-600 text-2xl">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Чистый код</h3>
+                    <p class="text-gray-500">Используем React, Node.js и современные облачные технологии.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-4xl bg-white p-12 rounded-[40px] shadow-sm border border-gray-100">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold mb-4">Оставить заявку</h2>
+                <p class="text-gray-500">Напишите нам, и мы рассчитаем стоимость вашего проекта</p>
+            </div>
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input type="text" placeholder="Ваше имя" class="bg-gray-50 border-none p-4 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 transition">
+                <input type="text" placeholder="Номер телефона" class="bg-gray-50 border-none p-4 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 transition">
+                <textarea placeholder="Ваша идея" class="md:col-span-2 bg-gray-50 border-none p-4 rounded-2xl h-32 outline-none focus:ring-2 focus:ring-blue-500 transition"></textarea>
+                <button class="md:col-span-2 bg-black text-white py-5 rounded-2xl font-bold hover:bg-zinc-800 transition">ОТПРАВИТЬ ДАННЫЕ</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-white text-center border-t">
+        <p class="text-gray-400 text-sm">© 2026 DamirTech Astana. Все права защищены.</p>
+    </footer>
+
 </body>
 </html>
