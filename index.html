@@ -9,16 +9,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         canvas { position: absolute; top: 0; left: 0; z-index: 1; }
-        .hero-content { position: relative; z-index: 10; pointer-events: none; }
+        .hero-content { position: relative; z-index: 10; pointer-events: none; width: 100%; }
         .hero-content a, .hero-content button { pointer-events: auto; }
-        .glass-nav { background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(15px); }
+        .glass-nav { background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(15px); }
     </style>
 </head>
 <body class="bg-black text-white">
 
     <nav class="glass-nav p-4 sticky top-0 z-50 border-b border-white/10">
         <div class="container mx-auto flex justify-between items-center px-4">
-            <div class="text-2xl font-black italic tracking-tighter">DAMIR<span class="text-blue-500 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">TECH</span></div>
+            <div class="text-2xl font-black tracking-tighter uppercase">DAMIR<span class="text-blue-500">TECH</span></div>
             <div class="hidden md:flex space-x-8 text-[12px] uppercase font-bold tracking-widest text-gray-400">
                 <a href="index.html" class="text-white">Главная</a>
                 <a href="about.html" class="hover:text-blue-400 transition">О нас</a>
@@ -29,42 +29,33 @@
     </nav>
 
     <header id="hero-canvas-container" class="relative h-screen flex items-center justify-center overflow-hidden border-b border-white/5">
-        <div class="container mx-auto px-6 text-center hero-content">
-            <h1 class="text-6xl md:text-9xl font-black mb-6 tracking-tighter leading-none">
+        <div class="container mx-auto px-4 text-center hero-content">
+            <h1 class="text-6xl md:text-9xl font-black mb-6 tracking-tighter leading-none text-white uppercase">
                 DAMIR<span class="text-blue-600">TECH</span><br>
-                <span class="text-3xl md:text-5xl font-light text-gray-500 uppercase tracking-[1em] md:tracking-[0.5em] block mt-4">Astana</span>
+                <span class="text-xl md:text-5xl font-light text-gray-500 uppercase tracking-[0.5em] md:tracking-[0.8em] block mt-4 w-full text-center">Astana</span>
             </h1>
-            <p class="text-gray-400 text-lg md:text-xl mb-12 max-w-xl mx-auto font-light">
+            <p class="text-gray-400 text-lg md:text-xl mb-12 max-w-xl mx-auto font-light leading-relaxed">
                 Мы создаем не просто сайты. Мы создаем цифровые миры. 
             </p>
             <div class="flex flex-col md:flex-row justify-center gap-6">
                 <a href="services.html" class="bg-white text-black px-12 py-5 rounded-full font-black uppercase tracking-widest hover:bg-blue-600 hover:text-white transition transform hover:scale-105">Наши услуги</a>
-                <a href="https://wa.me/77715224428" class="border border-white/20 px-12 py-5 rounded-full font-black uppercase tracking-widest hover:bg-white hover:text-black transition">WhatsApp</a>
+                <a href="https://wa.me/77715224428" target="_blank" class="border border-white/20 text-white px-12 py-5 rounded-full font-black uppercase tracking-widest hover:bg-white hover:text-black transition">WhatsApp</a>
             </div>
         </div>
     </header>
 
     <script>
-        // Скрипт для 3D Сферы (Тот самый "Взрыв мозга")
         const container = document.getElementById('hero-canvas-container');
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-        
         renderer.setSize(window.innerWidth, window.innerHeight);
         container.appendChild(renderer.domElement);
 
-        const geometry = new THREE.SphereGeometry(2, 64, 64);
-        const material = new THREE.PointsMaterial({
-            color: 0x2563eb, // Синий цвет DamirTech
-            size: 0.02,
-            transparent: true,
-            opacity: 0.8
-        });
-
+        const geometry = new THREE.SphereGeometry(1.7, 64, 64); // Чуть уменьшил сферу
+        const material = new THREE.PointsMaterial({ color: 0x2563eb, size: 0.02, transparent: true, opacity: 0.6 });
         const sphere = new THREE.Points(geometry, material);
         scene.add(sphere);
-
         camera.position.z = 5;
 
         function animate() {
@@ -73,13 +64,11 @@
             sphere.rotation.x += 0.001;
             renderer.render(scene, camera);
         }
-
         window.addEventListener('resize', () => {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
-
         animate();
     </script>
 </body>
